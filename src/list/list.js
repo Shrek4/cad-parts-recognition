@@ -1,27 +1,54 @@
 import React, { Component } from 'react';
 import { Card, Row, Col } from 'react-bootstrap'
-import logo from './../logo.svg';
+import logo from './../placeholder.png';
+import './list.css'
+import Filter from '../filter/filter';
+
+
 
 class ListTable extends Component {
+
+
     render() {
-        return (
-            <Row xs={1} md={5} className="g-4">
-                {Array.from({ length: 12 }).map((_, idx) => (
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src={logo} />
-                            <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        )
+        let data;
+        if (this.props.data) {
+            console.log(this.props.data)
+            data = this.props.data.map(el => {
+                return (
+                <Col>
+                    <Card key={el.id}>
+                        <Card.Img variant="top" src={logo} />
+                        <Card.Body>
+                            <Card.Title>ID: {el.id}</Card.Title>
+                            <Card.Text>
+                                Класс: {el.class}<br />
+                                Исполнение: {el.specification}<br />
+                                Стандарт: {el.standart}<br />
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                )
+            })
+
+            return (
+                // Adding a key to remove the warning
+                <div id="list">
+                    <Filter filterevent={this.props.filterevent}/>
+                    <Row xs={1} md={5} className="g-4">
+                        {data}
+                    </Row>
+                </div>
+            );
+        }
+        else {
+            return (
+                <div>
+                    ошибка
+                </div>
+            )
+        }
+
     }
 }
 

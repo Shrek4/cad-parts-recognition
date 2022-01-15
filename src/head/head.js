@@ -7,6 +7,7 @@ import logo from './../logo.svg';
 class Header extends Component {
   render(){
     return(
+
       <Navbar collapseOnSelect expand="md" bg="dark" variant='dark'>
         <Container>
           <Navbar.Brand href="/">
@@ -15,13 +16,13 @@ class Header extends Component {
           <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mr-auto'>
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/info">About</Nav.Link>
-              <Nav.Link href="/shrek">Shrek</Nav.Link>
+              <Nav.Link href="/">Главная</Nav.Link>
+              <Nav.Link href="/info">О проекте</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+            
     )
   }
 }

@@ -5,9 +5,9 @@ import ListTable from '../list/list';
 import { Routes, Route } from "react-router-dom";
 import Info from '../info/info';
 import React, { Component } from 'react';
-import $ from 'jquery';
+import { Button } from 'react-bootstrap'
 
-const socket = "http://localhost:3001";
+export const socket = "http://localhost:3001";
 
 class App extends Component {
 
@@ -22,6 +22,7 @@ class App extends Component {
 
     this.filterpartList = this.filterpartList.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.getAllparts = this.getAllparts.bind(this);
   }
 
   onChange(event) {
@@ -41,29 +42,26 @@ class App extends Component {
     this.setState({ filteredparts: parts });
   }
 
-  // AJAX request to get all the parts
-  getAllparts() {
-    $.ajax({
-      url: socket + '/parts',
-      dataType: 'json',
-      cache: false,
-      success: function (data) {
-        this.setState({ partList: data }, function () {
-          this.setState({ loading: false });
-          this.setState({ filteredparts: data });
-          // Logging the response
-          //console.log(this.state);
-        });
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.log(err);
-      }
-    });
+  getAllparts(e) {
+    // $.get({
+    //   url: socket + '/parts',
+    //   success: function (data) {
+    //     this.setState({ partList: data }, function () {
+    //       this.setState({ loading: false });
+    //       this.setState({ filteredparts: data });
+    //       // Logging the response
+    //       console.log(this.state);
+    //     });
+    //   }.bind(this),
+    //   error: function (err) {
+    //     console.log(err);
+    //   }
+    // });
+    fetch(socket + '/parts')
+      .then(response => response.json())
+      .then(data => { this.setState({ partList: data, loading: false, filteredparts: data }); });
   }
 
-  componentWillMount() {
-    this.getAllparts();
-  }
 
   componentDidMount() {
     this.getAllparts();
@@ -78,8 +76,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Button variant="danger" onClick={(e) => this.getAllparts(e)}>
+          Обновить
+        </Button>
         <Routes>
-          <Route path="/" element={<ListTable data={this.state.filteredparts} filterevent={this.onChange}/>} />
+          <Route path="/" element={<ListTable data={this.state.filteredparts} filterevent={this.onChange} />} />
           <Route path="info" element={<Info />} />
         </Routes>
 

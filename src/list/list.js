@@ -1,40 +1,33 @@
 import React, { Component } from 'react';
-import { Card, Row, Col } from 'react-bootstrap'
-import logo from './../placeholder.png';
+import { Row } from 'react-bootstrap'
 import './list.css'
 import Filter from '../filter/filter';
+import Item from '../item/item';
 
 
 
 class ListTable extends Component {
+    constructor(props) {
+        super(props)
+
+    }
+
 
 
     render() {
         let data;
         if (this.props.data) {
-            console.log(this.props.data)
+            // console.log(this.props.data)
             data = this.props.data.map(el => {
                 return (
-                <Col>
-                    <Card key={el.id}>
-                        <Card.Img variant="top" src={logo} />
-                        <Card.Body>
-                            <Card.Title>ID: {el.id}</Card.Title>
-                            <Card.Text>
-                                Класс: {el.class}<br />
-                                Исполнение: {el.specification}<br />
-                                Стандарт: {el.standart}<br />
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
+                    <Item key={el.id} id={el.id} class={el.class} specification={el.specification} standart={el.standart} />
                 )
             })
 
             return (
                 // Adding a key to remove the warning
                 <div id="list">
-                    <Filter filterevent={this.props.filterevent}/>
+                    <Filter filterevent={this.props.filterevent} />
                     <Row xs={1} md={5} className="g-4">
                         {data}
                     </Row>

@@ -12,7 +12,7 @@ async function deleteDataById(id) {
             },
             body: JSON.stringify({ id: id })
         });
-
+        window.location.reload();
     } catch (err) {
         console.log(err);
     }

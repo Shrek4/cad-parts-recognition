@@ -12,7 +12,7 @@ async function addPart(data) {
             },
             body: JSON.stringify(data)
         });
-
+        window.location.reload();
     } catch (err) {
         console.log(err);
     }

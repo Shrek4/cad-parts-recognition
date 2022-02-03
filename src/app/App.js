@@ -5,8 +5,6 @@ import ListTable from '../list/list';
 import { Routes, Route } from "react-router-dom";
 import Info from '../info/info';
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap'
-
 export const socket = "http://localhost:3001";
 
 class App extends Component {
@@ -62,7 +60,6 @@ class App extends Component {
       .then(data => { this.setState({ partList: data, loading: false, filteredparts: data }); });
   }
 
-
   componentDidMount() {
     this.getAllparts();
   }
@@ -76,9 +73,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Button variant="danger" onClick={(e) => this.getAllparts(e)}>
-          Обновить
-        </Button>
         <Routes>
           <Route path="/" element={<ListTable data={this.state.filteredparts} filterevent={this.onChange} />} />
           <Route path="info" element={<Info />} />

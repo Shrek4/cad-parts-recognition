@@ -68,7 +68,7 @@ app.post('/deletepart', jsonParser, function (req, res) {
 
 app.post('/addpart', jsonParser, function (req, res) {
   db.serialize(function () {
-    db.run('INSERT INTO Parts (class, specification, standart) VALUES (?, ?, ?)', [req.body.class, req.body.specification, req.body.standart], (err) => {
+    db.run('INSERT INTO Parts (class, specification, standart_id) VALUES (?, ?, ?)', [req.body.class, req.body.specification, req.body.standart], (err) => {
       if (err) {
         return console.log(err.message);
       }

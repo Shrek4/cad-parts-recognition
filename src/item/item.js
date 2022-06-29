@@ -42,9 +42,9 @@ class Item extends Component {
                             Исполнение: {this.specification}<br />
                             Стандарт: {this.standart}<br />
                         </Card.Text>
-                        <Button variant="danger" onClick={(e)=>this.handleClick(this.id, e)}>
+                        {/* <Button variant="danger" onClick={(e)=>this.handleClick(this.id, e)}>
                             Удалить
-                        </Button>
+                        </Button> */}
                     </Card.Body>
                 </Card>
             </Col>

@@ -41,20 +41,7 @@ class App extends Component {
   }
 
   getAllparts(e) {
-    // $.get({
-    //   url: socket + '/parts',
-    //   success: function (data) {
-    //     this.setState({ partList: data }, function () {
-    //       this.setState({ loading: false });
-    //       this.setState({ filteredparts: data });
-    //       // Logging the response
-    //       console.log(this.state);
-    //     });
-    //   }.bind(this),
-    //   error: function (err) {
-    //     console.log(err);
-    //   }
-    // });
+
     fetch(socket + '/parts')
       .then(response => response.json())
       .then(data => { this.setState({ partList: data, loading: false, filteredparts: data }); });

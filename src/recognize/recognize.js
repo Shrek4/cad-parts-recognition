@@ -1,61 +1,22 @@
-import { Form, Button, Accordion } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import React, { Component } from 'react';
-import './filter.css'
+import './recognize.css'
 
 
 class Recognize extends Component {
     constructor(props) {
         super(props)
 
-        this.handleSubmit = this.handleSubmit.bind(this);
- 
+
     }
-  
+
     render() {
         return (
-            <div id="filter">
-                <Form>
-                    <Form.Group className="mb-3" controlId="formFilter">
-                        <Form.Label>Фильтр</Form.Label>
-                        <Form.Control placeholder="Класс" onChange={this.props.filterevent} />
-                    </Form.Group>
-
-                </Form>
-                <Accordion>
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>Фильтр по характеристикам</Accordion.Header>
-                        <Accordion.Body>
-                            <Form>
-                                <Form.Group className="mb-3" controlId="formParamFilter">
-                                    <Form.Control placeholder="Длина" onChange={this.props.filterevent} />
-                                    <Form.Control placeholder="Стандарт" onChange={this.props.filterevent} />
-                                </Form.Group>
-
-                                <Button variant="primary" type="submit">
-                                    Показать результаты
-                                </Button>
-                            </Form>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
-                {/* <Accordion>
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>Добавить</Accordion.Header>
-                        <Accordion.Body>
-                            <Form onSubmit={(e)=>this.handleSubmit(e)}>
-                                <Form.Group className="mb-3" controlId="formAdd">
-                                    <Form.Control placeholder="Класс" />
-                                    <Form.Control placeholder="Исполнение"  />
-                                    <Form.Control placeholder="Стандарт" />
-                                </Form.Group>
-
-                                <Button variant="primary" type="submit">
-                                    Добавить
-                                </Button>
-                            </Form>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion> */}
+            <div>
+                <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>Выберите файл с чертежом</Form.Label>
+                    <Form.Control type="file" />
+                </Form.Group>
             </div>
         )
     }

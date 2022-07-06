@@ -48,9 +48,9 @@ class Filter extends Component {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Фильтр по характеристикам</Accordion.Header>
                         <Accordion.Body>
-                            <Form>
+                            <Form onSubmit={(e)=>this.handleSubmit(e)}>
                                 <Form.Group className="mb-3" controlId="formParamFilter">
-                                    <Form.Control placeholder="Длина" onChange={this.props.filterevent} />
+                                    <Form.Control placeholder="Размер" onChange={this.props.filterevent} />
                                     <Form.Control placeholder="Стандарт" onChange={this.props.filterevent} />
                                 </Form.Group>
 

@@ -20,7 +20,13 @@ class ListTable extends Component {
             // console.log(this.props.data)
             data = this.props.data.map(el => {
                 return (
-                    <Item key={el.id} id={el.id} class={el.class} specification={el.specification} standart={el.standart} />
+                    <Item 
+                    key={el.id} 
+                    id={el.id} 
+                    class={el.class} 
+                    size={el.size} 
+                    standart={el.standart} 
+                    />
                 )
             })
 

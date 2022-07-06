@@ -1,52 +1,62 @@
-import { Card, Col, Button } from 'react-bootstrap'
+import { Card, Col, Button, Modal } from 'react-bootstrap'
 import React, { Component } from 'react';
-import logo from './../placeholder.png';
+import image from './../placeholder.png';
 import { socket } from '../app/App';
-
-async function deleteDataById(id) {
-    try {
-        const res = await fetch(socket + '/deletepart', {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ id: id })
-        });
-        window.location.reload();
-    } catch (err) {
-        console.log(err);
-    }
-}
+import './item.css'
 
 class Item extends Component {
     constructor(props) {
         super(props)
         this.id = props.id
         this.class = props.class
-        this.specification = props.specification
+        this.size = props.size
         this.standart = props.standart
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            show: false
+        }
+
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
-    handleClick(id, e){
-        deleteDataById(id)
+
+    handleShow() {
+        this.setState({ show: true })
     }
+
+    handleClose() {
+        this.setState({ show: false })
+    }
+
     render() {
         return (
             <Col>
-                <Card>
-                    <Card.Img variant="top" src={logo} />
+                <Card onClick={this.handleShow}>
+                    <Card.Img variant="top" src={image} />
                     <Card.Body>
                         <Card.Title>ID: {this.id}</Card.Title>
                         <Card.Text>
                             Класс: {this.class}<br />
-                            Исполнение: {this.specification}<br />
+                            Размер: {this.size}<br />
                             Стандарт: {this.standart}<br />
                         </Card.Text>
-                        {/* <Button variant="danger" onClick={(e)=>this.handleClick(this.id, e)}>
-                            Удалить
-                        </Button> */}
                     </Card.Body>
                 </Card>
+
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Информация о детали</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Класс: {this.class}<br />
+                        Размер: {this.size}<br />
+                        Стандарт: {this.standart}<br />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            Закрыть
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </Col>
         )
     }

@@ -25,7 +25,8 @@ class ListTable extends Component {
                     id={el.id} 
                     class={el.class} 
                     size={el.size} 
-                    standart={el.standart} 
+                    standart={el.standart}
+                    images={el.images} 
                     />
                 )
             })

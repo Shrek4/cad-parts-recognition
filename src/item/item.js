@@ -1,6 +1,7 @@
 import { Card, Col, Button, Modal } from 'react-bootstrap'
+import Image from 'react-bootstrap/Image'
 import React, { Component } from 'react';
-import image from './../placeholder.png';
+// import image from './../placeholder.png';
 import { socket } from '../app/App';
 import './item.css'
 
@@ -11,6 +12,7 @@ class Item extends Component {
         this.class = props.class
         this.size = props.size
         this.standart = props.standart
+        this.image= props.images[0]
         this.state = {
             show: false
         }
@@ -31,7 +33,7 @@ class Item extends Component {
         return (
             <Col>
                 <Card onClick={this.handleShow}>
-                    <Card.Img variant="top" src={image} />
+                    <Card.Img variant="top" src={socket+'/'+this.image} />
                     <Card.Body>
                         <Card.Title>ID: {this.id}</Card.Title>
                         <Card.Text>
@@ -47,6 +49,7 @@ class Item extends Component {
                         <Modal.Title>Информация о детали</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
+                        <Image src={socket+'/'+this.image}/>
                         Класс: {this.class}<br />
                         Размер: {this.size}<br />
                         Стандарт: {this.standart}<br />

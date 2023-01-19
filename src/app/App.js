@@ -61,7 +61,7 @@ class App extends Component {
   getAllparts(e) {
     fetch(socket + '/parts')
       .then(response => response.json())
-      .then(data => { this.setState({ partList: data, loading: false, filteredparts: data }); });
+      .then(data => {this.setState({ partList: data, loading: false, filteredparts: data }); });
   }
 
   componentDidMount() {

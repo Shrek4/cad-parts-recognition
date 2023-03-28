@@ -34,7 +34,7 @@ class ListTable extends Component {
             return (
                 // Adding a key to remove the warning
                 <div id="list">
-                    <Filter filterevent={this.props.filterevent} />
+                    <Filter filterevent={this.props.filterevent} filtersize={this.props.filtersize} filterstandart={this.props.filterstandart}/>
                     <Row xs={1} md={5} className="g-4">
                         {data}
                     </Row>

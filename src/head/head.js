@@ -19,6 +19,7 @@ class Header extends Component {
               <Nav.Link href="/">Главная</Nav.Link>
               <Nav.Link href="/recognize">Распознавание деталей</Nav.Link>
               <Nav.Link href="/info">О проекте</Nav.Link>
+              <Nav.Link href="/chat_assist">Чат-бот</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

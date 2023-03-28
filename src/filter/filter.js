@@ -50,13 +50,13 @@ class Filter extends Component {
                         <Accordion.Body>
                             <Form onSubmit={(e)=>this.handleSubmit(e)}>
                                 <Form.Group className="mb-3" controlId="formParamFilter">
-                                    <Form.Control placeholder="Размер"/>
-                                    <Form.Control placeholder="Стандарт" />
+                                    <Form.Control placeholder="Размер" onChange={this.props.filtersize}/>
+                                    <Form.Control placeholder="Стандарт" onChange={this.props.filterstandart}/>
                                 </Form.Group>
-
+{/* 
                                 <Button variant="primary" onClick={this.props.filterevent}>
                                     Показать результаты
-                                </Button>
+                                </Button> */}
                             </Form>
                         </Accordion.Body>
                     </Accordion.Item>

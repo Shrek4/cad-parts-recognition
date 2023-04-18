@@ -10,7 +10,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleDescription = () => {
-    const botMessage = createChatBotMessage('Здесь описание проекта');
+    const botMessage = createChatBotMessage('Это приложение с набором данных чертежей деталей, здесь можно распознавать детали на чертеже. Чтобы это сделать, зайдите в раздел "Распознавание деталей"');
 
     setState((prev) => ({
       ...prev,
@@ -18,7 +18,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleHelp = () => {
-    const botMessage = createChatBotMessage('Здесь список команд');
+    const botMessage = createChatBotMessage('Чтобы узнать подробнее о проекте, напишите "о проекте".');
 
     setState((prev) => ({
       ...prev,
@@ -26,7 +26,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleHelpRecognize = () => {
-    const botMessage = createChatBotMessage('Здесь инструкция');
+    const botMessage = createChatBotMessage('Зайдите в раздел "Распознавание деталей", загружите чертёж в растровом формате и нажмите "Далее".');
 
     setState((prev) => ({
       ...prev,
@@ -34,7 +34,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleDescDataset = () => {
-    const botMessage = createChatBotMessage('Здесь информация о наборе данных');
+    const botMessage = createChatBotMessage('Набор данных состоит из 125 деталей, принадлежащих к 5 классам: болты, гайки, шайбы, подшипники и сальники. Каждой детали соответствует стандарт, размер и некоторое количество изображений на чертеже в разных проекциях и разворотах.');
 
     setState((prev) => ({
       ...prev,
@@ -42,7 +42,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleSource = () => {
-    const botMessage = createChatBotMessage('Здесь ссылки на исходники');
+    const botMessage = createChatBotMessage('Ссылки на исходники: набор данных - https://github.com/Shrek4/cad-dataset веб-приложение - https://github.com/Shrek4/cad-parts-recognition');
 
     setState((prev) => ({
       ...prev,
@@ -50,7 +50,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleOther = () => {
-    const botMessage = createChatBotMessage('Не понял вопроса');
+    const botMessage = createChatBotMessage('Не понял вопроса. Напиши "помощь".');
 
     setState((prev) => ({
       ...prev,

@@ -6,7 +6,6 @@ import './chat_assist.css'
 import config from "./chatbotConfig";
 import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";
-import Speech from './speech';
 
 
 class ChatAssist extends Component {
@@ -21,7 +20,6 @@ class ChatAssist extends Component {
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
-      <Speech/>
     </div>
         )
       }

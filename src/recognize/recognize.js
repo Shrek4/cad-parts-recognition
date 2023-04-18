@@ -29,23 +29,42 @@ class Recognize extends Component {
                 this.setState({ imageURL: socket + '/' + body.url });
             });
         });
+
     }
 
     render() {
-        return (
-            <div>
-                <Form onSubmit={this.handleUploadImage}>
-                    <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Label>Выберите файл с чертежом</Form.Label>
-                        <Form.Control type="file" ref={(ref) => { this.uploadInput = ref; }} />
-                        <Button variant="primary" type="submit">
-                            Далее
-                        </Button>
-                    </Form.Group>
-                </Form>
-                <img src={this.state.imageURL} alt="ready_img"/>
-            </div>
-        )
+        if(this.state.imageURL===''){
+            return (
+                <div>
+                    <Form onSubmit={this.handleUploadImage}>
+                        <Form.Group controlId="formFile" className="mb-3">
+                            <Form.Label>Выберите файл с чертежом</Form.Label>
+                            <Form.Control type="file" ref={(ref) => { this.uploadInput = ref; }} />
+                            <Button variant="primary" type="submit">
+                                Далее
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                </div>
+            )
+        }
+        else{
+            return (
+                <div>
+                    <Form onSubmit={this.handleUploadImage}>
+                        <Form.Group controlId="formFile" className="mb-3">
+                            <Form.Label>Выберите файл с чертежом</Form.Label>
+                            <Form.Control type="file" ref={(ref) => { this.uploadInput = ref; }} />
+                            <Button variant="primary" type="submit">
+                                Далее
+                            </Button>
+                        </Form.Group>
+                    </Form>
+                        <img src={this.state.imageURL} alt="ready_img"/>
+                </div>
+            )
+        }
+
     }
 }
 

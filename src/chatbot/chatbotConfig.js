@@ -16,12 +16,3 @@ const config = {
 export default config;
 
 
-
-function MyAvatar() {
-  
-    return (
-      <div>
-        <p>Shrek</p>
-      </div>
-    );
-  }

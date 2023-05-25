@@ -43,6 +43,7 @@ class Recognize extends PureComponent {
         });
       });
   }
+  
   onSelectFile = (e) => {
     if (e.target.files && e.target.files.length > 0) {
 
@@ -54,7 +55,6 @@ class Recognize extends PureComponent {
     }
   };
 
-  // If you setState the crop in here you should return false.
   onImageLoaded = (image) => {
     this.imageRef = image;
   };
@@ -64,8 +64,6 @@ class Recognize extends PureComponent {
   };
 
   onCropChange = (crop, percentCrop) => {
-    // You could also use percentCrop:
-    // this.setState({ crop: percentCrop });
     this.setState({ crop });
   };
 
@@ -109,7 +107,6 @@ class Recognize extends PureComponent {
       canvas.toBlob(
         (blob) => {
           if (!blob) {
-            //reject(new Error('Canvas is empty'));
             console.error('Canvas is empty');
             return;
           }
@@ -127,8 +124,13 @@ class Recognize extends PureComponent {
   render() {
     return (
       <div className="recognize">
-        <div>
-          <input type="file" accept="image/*" onChange={this.onSelectFile} />
+        <div className='formupload'>
+          <Form>
+          <Form.Group className="mb-3">
+            <Form.Label>Выберите файл, затем выделите участок для распознавания и нажмите "Готово"</Form.Label>
+            <Form.Control type="file" accept="image/*" onChange={this.onSelectFile}/>
+          </Form.Group>
+          </Form>
         </div>
         {this.state.src && (
           <ReactCrop
@@ -149,7 +151,7 @@ class Recognize extends PureComponent {
           </div>
         )}
         {this.state.recognize_data && (
-          <p>{this.state.recognize_data}</p>
+          <p>Результат: {this.state.recognize_data}</p>
         )}
       </div>
     );

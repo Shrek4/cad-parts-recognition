@@ -49,7 +49,7 @@ class Item extends Component {
                         <Modal.Title>Информация о детали</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Image src={socket+'/'+this.image}/>
+                        <Image src={socket+'/'+this.image} className='ItemImage'/>
                         Класс: {this.class}<br />
                         Размер: {this.size}<br />
                         Стандарт: {this.standart}<br />

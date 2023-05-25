@@ -16,7 +16,7 @@ class ChatAssist extends Component {
               <div className="App">
       <Chatbot
         config={config}
-        headerText='Conversation with Shrek'
+        headerText='Conversation with Bot'
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />

@@ -2,3 +2,7 @@
     border: 3px solid rgb(106, 106, 252);
     background-color: rgb(233, 233, 233);
 }
+
+img .ItemImage{
+    max-height: 300px;
+}

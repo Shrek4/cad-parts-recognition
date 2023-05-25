@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import {Container, Nav, Navbar} from 'react-bootstrap'
 import logo from './../logo.png';
+import gitlink from './../github.png';
 
 
 class Header extends Component {
@@ -22,6 +23,17 @@ class Header extends Component {
               <Nav.Link href="/chat_assist">Чат-бот</Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <Navbar.Collapse className="justify-content-end">
+          <Navbar.Brand href="https://github.com/Shrek4/cad-parts-recognition">
+            <img
+              src={gitlink}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </Navbar.Brand>
+        </Navbar.Collapse>
         </Container>
       </Navbar>
             

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// здесь задаются ответы бота
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleHello = () => {
     const botMessage = createChatBotMessage('Привет. Чем могу помочь?');

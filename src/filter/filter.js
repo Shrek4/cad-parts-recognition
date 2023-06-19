@@ -1,36 +1,15 @@
 import { Form, Button, Accordion } from 'react-bootstrap'
 import React, { Component } from 'react';
 import './filter.css'
-import { socket } from '../app/App';
 
-async function addPart(data) {
-    try {
-        const res = await fetch(socket + '/addpart', {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-        window.location.reload();
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 class Filter extends Component {
     constructor(props) {
         super(props)
 
-        this.handleSubmit = this.handleSubmit.bind(this);
- 
     }
 
-    handleSubmit(e){
-        e.preventDefault()
-        addPart({class: e.target[0].value, specification: e.target[1].value, standart: e.target[2].value})
-    }
-  
+
     render() {
         return (
             <div id="filter">
@@ -48,12 +27,12 @@ class Filter extends Component {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Фильтр по характеристикам</Accordion.Header>
                         <Accordion.Body>
-                            <Form onSubmit={(e)=>this.handleSubmit(e)}>
+                            <Form>
                                 <Form.Group className="mb-3" controlId="formParamFilter">
-                                    <Form.Control placeholder="Размер" onChange={this.props.filtersize}/>
-                                    <Form.Control placeholder="Стандарт" onChange={this.props.filterstandart}/>
+                                    <Form.Control placeholder="Размер" onChange={this.props.filtersize} />
+                                    <Form.Control placeholder="Стандарт" onChange={this.props.filterstandart} />
                                 </Form.Group>
-{/* 
+                                {/* 
                                 <Button variant="primary" onClick={this.props.filterevent}>
                                     Показать результаты
                                 </Button> */}

@@ -19,6 +19,7 @@ class ListTable extends Component {
         if (this.props.data) {
             // console.log(this.props.data)
             data = this.props.data.map(el => {
+                // lazyload для динамической подгрузки данных
                 return (
                     <LazyLoad height={200} key={el.id}>
                     <Item
@@ -33,18 +34,7 @@ class ListTable extends Component {
                 )
             })
 
-            return (
-                // Adding a key to remove the warning
-                <div id="list">
-                    <Filter filterevent={this.props.filterevent} filtersize={this.props.filtersize} filterstandart={this.props.filterstandart} />
-                    
-                        <Row xs={1} md={5} className="g-4">
-                            {data}
-                        </Row>
-                    
 
-                </div>
-            );
         }
         else {
             return (

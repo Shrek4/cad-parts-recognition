@@ -58,7 +58,7 @@ class App extends Component {
   }
 
 
-  // For filtering the part object w.r.t name
+  // фильтрованные данные элементов
   filterpartList() {
     let parts = this.state.partList;
     let class_filter = this.state.class_filter;

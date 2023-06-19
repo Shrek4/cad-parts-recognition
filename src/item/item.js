@@ -50,6 +50,7 @@ class Item extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Image src={socket+'/'+this.image} className='ItemImage'/>
+                        <br/>
                         Класс: {this.class}<br />
                         Размер: {this.size}<br />
                         Стандарт: {this.standart}<br />

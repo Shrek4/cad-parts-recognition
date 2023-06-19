@@ -1,5 +1,6 @@
 import React from 'react';
 
+// здесь задаются правила
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
 

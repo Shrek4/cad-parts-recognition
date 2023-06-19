@@ -21,7 +21,7 @@ class Recognize extends PureComponent {
   }
 
 
-
+  // отправляет обрезанную картинку на сервер
   handleUploadImage() {
     fetch(this.state.croppedImageUrl)
       .then((response) => response.blob())
@@ -29,10 +29,10 @@ class Recognize extends PureComponent {
         const file = new File([blob], 'image.jpg', {
           type: "image/jpeg",
         });
-        
+
         const data = new FormData();
         data.append('file', file);
-  
+
         fetch(socket + '/upload', {
           method: 'POST',
           body: data,
@@ -43,7 +43,7 @@ class Recognize extends PureComponent {
         });
       });
   }
-  
+
   onSelectFile = (e) => {
     if (e.target.files && e.target.files.length > 0) {
 
@@ -78,6 +78,7 @@ class Recognize extends PureComponent {
     }
   }
 
+  // получает обрезанный участок в виде blob
   getCroppedImg(image, crop, fileName) {
     const canvas = document.createElement('canvas');
     const pixelRatio = window.devicePixelRatio;
@@ -126,10 +127,10 @@ class Recognize extends PureComponent {
       <div className="recognize">
         <div className='formupload'>
           <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>Выберите файл, затем выделите участок для распознавания и нажмите "Готово"</Form.Label>
-            <Form.Control type="file" accept="image/*" onChange={this.onSelectFile}/>
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Выберите файл, затем выделите участок для распознавания и нажмите "Готово"</Form.Label>
+              <Form.Control type="file" accept="image/*" onChange={this.onSelectFile} />
+            </Form.Group>
           </Form>
         </div>
         {this.state.src && (

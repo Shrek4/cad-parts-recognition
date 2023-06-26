@@ -4,3 +4,9 @@
     margin-right: auto;
     margin-bottom: 20px;
 }
+
+@media (orientation: portrait) { 
+    #filter{
+        width: 90%;
+    }
+}

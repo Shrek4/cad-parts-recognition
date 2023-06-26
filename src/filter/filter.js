@@ -25,7 +25,7 @@ class Filter extends Component {
                 </Form>
                 <Accordion>
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header>Фильтр по характеристикам</Accordion.Header>
+                        <Accordion.Header className='char_filter_button'>Фильтр по характеристикам</Accordion.Header>
                         <Accordion.Body>
                             <Form>
                                 <Form.Group className="mb-3" controlId="formParamFilter">

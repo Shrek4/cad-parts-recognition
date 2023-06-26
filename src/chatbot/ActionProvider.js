@@ -19,7 +19,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   };
   const handleHelp = () => {
-    const botMessage = createChatBotMessage('Чтобы узнать подробнее о проекте, напишите "о проекте".');
+    const botMessage = createChatBotMessage('Чтобы узнать подробнее о проекте, напишите "о проекте". Также вы можете спросить меня о распознавании чертежей, о проекте, о наборе данных и об исходниках.');
 
     setState((prev) => ({
       ...prev,

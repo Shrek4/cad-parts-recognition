@@ -33,7 +33,7 @@ class Item extends Component {
         return (
             <Col>
                 <Card onClick={this.handleShow}>
-                    <Card.Img variant="top" src={socket+'/'+this.image} />
+                    <Card.Img variant="top" src={socket+'/'+this.image} className='ItemImage'/>
                     <Card.Body>
                         <Card.Title>ID: {this.id}</Card.Title>
                         <Card.Text>
